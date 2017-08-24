@@ -2,6 +2,9 @@
 ** An Introduction to SOLR  **
 ******************************
 
+In this project you will learn what is a SOLR search engine and how can you install and configure it in your machine.
+
+
 
 Solr Setup 
 ================
