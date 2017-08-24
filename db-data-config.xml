@@ -1,0 +1,33 @@
+<dataConfig>
+<dataSource type="JdbcDataSource" driver="com.mysql.jdbc.Driver" url="jdbc:mysql://localhost:3306/mycollection" user="root" password="root"/>
+   <document>
+     <!--  product details starts here  -->
+    <entity  name="users" pk="id" 
+                query="SELECT us.id, us.name, us.age, us.gender, us.created, pr.address, pr.salary FROM  `users` AS us
+                LEFT JOIN  `profile` AS pr ON us.id = pr.user_id" 
+
+         deltaImportQuery="SELECT us.id, us.name, us.age, us.gender, us.created, pr.address, pr.salary FROM  `users` AS us
+                LEFT JOIN  `profile` AS pr ON us.id = pr.user_id where  us.id='${dataimporter.delta.id}'"
+
+                 deltaQuery="select id from users where modified > '${dataimporter.last_index_time}'" >
+
+                <field column="id" name="id" />
+                <field column="name" name="name" />
+                <field column="age" name="age" />
+                <field column="gender" name="gender" />
+                <field column="address" name="address" />
+                <field column="created" name="created" />
+                <field column="salary" name="salary" /> 
+                <field column="created" name="created" />                  
+
+       <!--  Product price starts here  -->
+            <entity name="products"  
+                    query="SELECT product_name from user_products where user_id = '${users.id}'">               
+                   <field name="productname" column="product_name"/>                   
+            </entity> 
+       <!--   Product price ends here  -->      
+
+        </entity> 
+       <!--  product details ends here  -->
+    </document>
+</dataConfig>

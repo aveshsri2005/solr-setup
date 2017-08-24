@@ -3,9 +3,8 @@
 ******************************
 
 
-Solr Setup
-===================
+Solr Setup 
+================
 
-        ➜  Please read introduction-to-solr.pdf for Installation & configuration of SOLR.
-        ➜  Sample data and files are given under the source folder.
-
+        ➜  Please read introduction-to-solr.pdf file given under the Manual folder for the detailed description and installation of SOLR.
+        ➜  Sample data file is given under the data folder.
